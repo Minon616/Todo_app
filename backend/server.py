@@ -1,9 +1,7 @@
 import sys
 import os
 from flask import Flask, request, jsonify
-#from flask_cors import CORS
 from flask_cors import CORS
-
 
 # Add parent directory to path for imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -15,6 +13,13 @@ from backend.sql_connection import get_connection
 # Initialize Flask app and enable CORS
 app = Flask(__name__)
 CORS(app)
+
+# -------------------------------
+# Root Route (Health Check)
+# -------------------------------
+@app.route('/')
+def index():
+    return jsonify({"message": "Todo backend is running!"})
 
 # -------------------------------
 # Add Task (Create)
@@ -80,5 +85,3 @@ def api_delete_all_tasks():
 # -------------------------------
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
-#update
