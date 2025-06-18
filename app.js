@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchTasks() {
-    fetch("https://todo-app-1-j941.onrender.com")
+    fetch("https://todo-app-1-j941.onrender.com/tasks")
         .then(response => response.json())
         .then(data => {
             console.log("Fetched tasks:", data);
@@ -41,12 +41,12 @@ function fetchTasks() {
 }
 
 function addTask(title) {
-    fetch("https://todo-app-1-j941.onrender.com", {
+    fetch("https://todo-app-1-j941.onrender.com/tasks", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ task_title: title })  // Must match backend key
+        body: JSON.stringify({ task_title: title })
     })
     .then(response => response.json())
     .then(data => {
@@ -59,7 +59,7 @@ function addTask(title) {
 }
 
 function deleteTask(id) {
-    fetch(`https://todo-app-1-j941.onrender.com${id}`, {
+    fetch(`https://todo-app-1-j941.onrender.com/tasks/${id}`, {
         method: "DELETE"
     })
     .then(response => response.json())
@@ -71,7 +71,7 @@ function deleteTask(id) {
 }
 
 function deleteAllTasks() {
-    fetch("https://todo-app-1-j941.onrender.com", {
+    fetch("https://todo-app-1-j941.onrender.com/tasks", {
         method: "DELETE"
     })
     .then(response => response.json())
