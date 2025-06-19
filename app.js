@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchTasks() {
-    fetch("https://todo-app-1-j941.onrender.com/tasks")
+    fetch("https://todo-app-xbef.onrender.com/tasks")
         .then(response => response.json())
         .then(data => {
             console.log("Fetched tasks:", data);
@@ -41,7 +41,7 @@ function fetchTasks() {
 }
 
 function addTask(title) {
-    fetch("https://todo-app-1-j941.onrender.com/tasks", {
+    fetch("https://todo-app-xbef.onrender.com/tasks", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -59,7 +59,7 @@ function addTask(title) {
 }
 
 function deleteTask(id) {
-    fetch(`https://todo-app-1-j941.onrender.com/tasks/${id}`, {
+    fetch(`https://todo-app-xbef.onrender.com/tasks/${id}`, {
         method: "DELETE"
     })
     .then(response => response.json())
@@ -71,7 +71,7 @@ function deleteTask(id) {
 }
 
 function deleteAllTasks() {
-    fetch("https://todo-app-1-j941.onrender.com/tasks", {
+    fetch("https://todo-app-xbef.onrender.com/tasks", {
         method: "DELETE"
     })
     .then(response => response.json())
